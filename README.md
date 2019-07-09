@@ -16,6 +16,8 @@ Python 3.6+.
 
 ```bash
 $ pip install dateandtimeparser
+#or
+$ python setup.py install
 ```
 
 ## Usage
@@ -35,7 +37,7 @@ dp.datetime
 [datetime(date='january 01 2019', token_span=(34, 49), token_index=(6, 8), format='%B %d %Y'),
  datetime(date='10/12/16', token_span=(9, 17), token_index=(2, 2), format='%d/%m/%y')]
 ```
-
+for an extended usage demo refer [this](https://github.com/GlibAI/dateandtimeparser/blob/master/notebooks/lib-usage-notebook.ipynb) notebook.
 ## License
 
 dateandtimeparser is distributed under the terms of the
