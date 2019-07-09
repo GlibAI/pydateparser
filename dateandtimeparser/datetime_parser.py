@@ -1,5 +1,6 @@
 from collections import namedtuple
 from .errors import DateParserException
+from .core_date_parser import DateParser
 from .core_datetime_formats import DateTimeFormats
 
 
