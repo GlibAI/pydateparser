@@ -17,6 +17,8 @@ class DateTimeParser:
         self._datetime_format = datetime_format
         if self._datetime_format == None:
             self._datetime_format = DateTimeFormats.FORMATS
+        else:
+            self._datetime_format = DateTimeFormats.FORMATS+self._datetime_format
         self._dateparser_formatter = self._format_datetime
         self.datetime = self._parser(self.text, self.start_year, self.end_year,
                                      self._datetime_format, self._dateparser_formatter)
