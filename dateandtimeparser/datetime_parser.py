@@ -1,6 +1,7 @@
 from collections import namedtuple
 from .errors import DateParserException
 from .core_date_parser import DateParser
+from .loggers import logger
 from .core_datetime_formats import DateTimeFormats
 
 
@@ -28,10 +29,12 @@ class DateTimeParser:
         DP = DateParser(datetime_format, start_year=start_year,
                         end_year=end_year)
         try:
+            logger.info('Extracting dates from the text.')
             dt = DP.parse_string(text)
             _dt = [formatter(i) for i in dt]
             return _dt
-        except DateParserException:
+        except DateParserException as DPEX:
+            logger.info(f"ERROR: {DPEX}")
             return None
 
     @staticmethod
