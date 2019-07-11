@@ -18,15 +18,11 @@ class DateTimeParser:
     mode = attr.ib(default="date", validator=[
                    _mode_type_validator, attr.validators.instance_of(str)])
     datetime_format = attr.ib(
-        default=None, validator=_datetime_format_type_validator)
+        default=None, validator=_datetime_format_type_validator)    
 
     def __attrs_post_init__(self):
         object.__setattr__(self, "datetime_format",
                            self.datetime_format_handler(self.datetime_format))
-        object.__setattr__(self, "_dateparser_formatter",
-                           self._format_datetime)
-        object.__setattr__(self, "datetime", self._parser(
-            self.text, self.start_year, self.end_year, self.datetime_format, self._dateparser_formatter))
 
     @staticmethod
     def datetime_format_handler(datetime_format):
@@ -53,3 +49,7 @@ class DateTimeParser:
             return _dt
         except DateParserException:
             return None
+
+    @property
+    def datetime(self):
+        return self._parser(self.text, self.start_year, self.end_year, self.datetime_format, self._format_datetime)
