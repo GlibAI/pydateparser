@@ -1,7 +1,5 @@
 import re
 import copy
-#from shapely.geometry import LineString
-
 
 class CoreDateParser:
     def __init__(self, formats, start_year=1900, end_year=2100):
