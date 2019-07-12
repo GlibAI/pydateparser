@@ -1,5 +1,13 @@
+""""
+Defines various supported locale/types
+"""
+
+
 class DateFormats:
-    locale = {'USA':[
+    '''
+    standard dateformats, according to the various locales.
+    '''
+    locale = {'USA': [
         '%b %d %Y',
         '%b %-d %Y',
         '%b %d, %Y',
@@ -13,7 +21,7 @@ class DateFormats:
         '%m/%d/%y',
         '%m/%-d/%y'
     ],
-    'EU':[
+        'EU': [
         '%b %d %Y',
         '%b %-d %Y',
         '%b %d, %Y',

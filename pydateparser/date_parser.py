@@ -1,3 +1,7 @@
+""""
+Date Parser Adapter.
+"""
+
 import attr
 from ._loggers import logger
 from collections import namedtuple
@@ -11,6 +15,26 @@ from ._validators import _date_format_type_validator, _end_year_validator
 class DateParser:
     """
     CoreDateParser Adapter class.
+
+    Parameters: 
+    ----------
+
+    text: str
+        a string/text document from which we can extract dates.
+
+    start_year: int
+        define the start year from which to look for the date.
+
+    end_year: int
+        define the end year from which to look for the date.
+
+    locale: None, str, list
+        define the type of dateformat(currently supports 'USA', 'EU'), default is None.
+        or pass your own list of patterns.
+
+    Returns: 
+    -------
+        list of `DATE` objects.
     """
     text = attr.ib(validator=attr.validators.instance_of(str))
     start_year = attr.ib(validator=attr.validators.instance_of(int))
