@@ -46,7 +46,7 @@ class DateParser:
             dt = DP.parse_string(text)
             _dt = [formatter(i) for i in dt]
             return _dt
-        except DateParserException:
+        except Exception:
             return None
 
     @property
