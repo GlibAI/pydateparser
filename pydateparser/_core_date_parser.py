@@ -1,6 +1,7 @@
 import re
 import copy
 
+
 class CoreDateParser:
     def __init__(self, formats, start_year=1900, end_year=2100):
         self.formats = formats
@@ -111,10 +112,6 @@ class CoreDateParser:
                     if (char_start > token_spans[idx][1] and char_start < token_spans[idx][2]) or (char_end > token_spans[idx][1] and char_end < token_spans[idx][2]):
                         start_token = min(start_token, token_spans[idx][3])
                         end_token = max(end_token, token_spans[idx][3])
-                    # ls1 = LineString([(char_start, 0), (char_end, 0)])
-                    # ls2 = LineString(
-                    # [(token_spans[idx][1], 0), (token_spans[idx][2], 0)])
-                    # if ls1.intersects(ls2):
                 ret_list.append(list(pm) + [start_token, end_token])
         ret_list = sorted(ret_list, key=lambda x: x[2]-x[1], reverse=True)
         final_ret_list = []
