@@ -7,16 +7,21 @@ from ._loggers import logger
 from collections import namedtuple
 from .date_formats import DateFormats
 from ._errors import DateParserException
+from ._utils import _date_format_handler
 from ._core_date_parser import CoreDateParser
 from ._validators import _positive_integer_validator
 from ._validators import _date_format_type_validator, _end_year_validator
 
 
 _attributes = {'text': attr.ib(validator=attr.validators.instance_of(str)),
-               'start_year': attr.ib(validator=[attr.validators.instance_of(int), _positive_integer_validator]),
+               'start_year': attr.ib(validator=[attr.validators.instance_of(int),
+                                                _positive_integer_validator]),
                'end_year': attr.ib(validator=[attr.validators.instance_of(int),
-                                              _end_year_validator, _positive_integer_validator]),
-               'locale': attr.ib(default=None, validator=_date_format_type_validator)}
+                                              _end_year_validator,
+                                              _positive_integer_validator]),
+               'locale': attr.ib(default=None,
+                                 validator=_date_format_type_validator,
+                                 converter=_date_format_handler)}
 
 
 @attr.s(slots=True, these=_attributes)
@@ -44,20 +49,6 @@ class DateParser:
     -------
         list of `DATE` objects.
     """
-
-    def __attrs_post_init__(self):
-        object.__setattr__(
-            self, "locale", self._date_format_handler(self.locale))
-
-    @staticmethod
-    def _date_format_handler(locale):
-        if locale == None:
-            return DateFormats.locale.get('USA')
-        elif locale != None and isinstance(locale, str) and locale in DateFormats.locale.keys():
-            return DateFormats.locale.get(locale)
-        else:
-            return locale
-
     @staticmethod
     def _format_date(date_object):
         _date = namedtuple(
