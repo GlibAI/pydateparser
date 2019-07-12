@@ -20,6 +20,7 @@ setup(
     version=version,
     description='date and time parsing library.',
     long_description=readme,
+    long_description_content_type='text/markdown',
     author='glib.ai',
     author_email='',
     maintainer='Samit Shah',
@@ -28,7 +29,7 @@ setup(
     license='MIT',
 
     keywords=[
-        'date','time', 'datetime', 'parser'
+        'date', 'time', 'datetime', 'parser'
     ],
 
     classifiers=[
