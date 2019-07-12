@@ -6,6 +6,9 @@
 [![PyPI license](https://img.shields.io/pypi/l/pydateparser.svg)](https://pypi.python.org/pypi/pydateparser/)
 [![PyPI status](https://img.shields.io/pypi/status/pydateparser.svg)](https://pypi.python.org/pypi/pydateparser/)
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+<img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat">
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)
+
 
 **Table of Contents**
 
