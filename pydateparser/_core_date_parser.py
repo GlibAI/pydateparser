@@ -1,6 +1,6 @@
 import re
 import copy
-from shapely.geometry import LineString
+#from shapely.geometry import LineString
 
 
 class CoreDateParser:
@@ -110,12 +110,13 @@ class CoreDateParser:
                 start_token = 1000
                 end_token = -1
                 for idx in token_spans:
-                    ls1 = LineString([(char_start, 0), (char_end, 0)])
-                    ls2 = LineString(
-                        [(token_spans[idx][1], 0), (token_spans[idx][2], 0)])
-                    if ls1.intersects(ls2):
+                    if (char_start > token_spans[idx][1] and char_start < token_spans[idx][2]) or (char_end > token_spans[idx][1] and char_end < token_spans[idx][2]):
                         start_token = min(start_token, token_spans[idx][3])
                         end_token = max(end_token, token_spans[idx][3])
+                    # ls1 = LineString([(char_start, 0), (char_end, 0)])
+                    # ls2 = LineString(
+                    # [(token_spans[idx][1], 0), (token_spans[idx][2], 0)])
+                    # if ls1.intersects(ls2):
                 ret_list.append(list(pm) + [start_token, end_token])
         ret_list = sorted(ret_list, key=lambda x: x[2]-x[1], reverse=True)
         final_ret_list = []
