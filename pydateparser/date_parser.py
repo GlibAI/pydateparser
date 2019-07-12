@@ -8,10 +8,18 @@ from collections import namedtuple
 from .date_formats import DateFormats
 from ._errors import DateParserException
 from ._core_date_parser import CoreDateParser
+from ._validators import _positive_integer_validator
 from ._validators import _date_format_type_validator, _end_year_validator
 
 
-@attr.s(slots=True)
+_attributes = {'text': attr.ib(validator=attr.validators.instance_of(str)),
+               'start_year': attr.ib(validator=[attr.validators.instance_of(int), _positive_integer_validator]),
+               'end_year': attr.ib(validator=[attr.validators.instance_of(int),
+                                              _end_year_validator, _positive_integer_validator]),
+               'locale': attr.ib(default=None, validator=_date_format_type_validator)}
+
+
+@attr.s(slots=True, these=_attributes)
 class DateParser:
     """
     CoreDateParser Adapter class.
@@ -36,11 +44,6 @@ class DateParser:
     -------
         list of `DATE` objects.
     """
-    text = attr.ib(validator=attr.validators.instance_of(str))
-    start_year = attr.ib(validator=attr.validators.instance_of(int))
-    end_year = attr.ib(
-        validator=[attr.validators.instance_of(int), _end_year_validator])
-    locale = attr.ib(default=None, validator=_date_format_type_validator)
 
     def __attrs_post_init__(self):
         object.__setattr__(

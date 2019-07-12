@@ -8,3 +8,8 @@ def _end_year_validator(instance, attribute, value):
     if value < instance.start_year:
         raise ValueError(
             "'end_year' has to be greater than or equal to 'start_year'!")
+
+
+def _positive_integer_validator(isinstance, attribute, value):
+    if value < 0:
+        raise ValueError("'year' should be positive integer.")
