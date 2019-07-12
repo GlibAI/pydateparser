@@ -1,11 +1,11 @@
 [metadata]
-name = 'dateandtimeparser'
+name = 'pydateparser'
 version = '0.0.1'
 description = 'date and time parsing library.'
 author = 'glib.ai'
-author_email = 'samith@glib.ai'
+author_email = ''
 license = 'MIT'
-url = 'https://github.com/GlibAi/dateandtimeparser'
+url = 'https://github.com/GlibAi/pydateparser'
 
 [requires]
 python_version = ['3.6']

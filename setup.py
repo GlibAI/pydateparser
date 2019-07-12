@@ -2,7 +2,7 @@ from io import open
 
 from setuptools import find_packages, setup
 
-with open('dateandtimeparser/__init__.py', 'r') as f:
+with open('pydateparser/__init__.py', 'r') as f:
     for line in f:
         if line.startswith('__version__'):
             version = line.strip().split('=')[1].strip(' \'"')
@@ -16,15 +16,15 @@ with open('README.md', 'r', encoding='utf-8') as f:
 REQUIRES = []
 
 setup(
-    name='dateandtimeparser',
+    name='pydateparser',
     version=version,
     description='date and time parsing library.',
     long_description=readme,
     author='glib.ai',
-    author_email='samith@glib.ai',
-    maintainer='Samith Sha',
-    maintainer_email='samith@glib.ai',
-    url='https://github.com/GLibAi/dateandtimeparser',
+    author_email='',
+    maintainer='Samit Shah',
+    maintainer_email='samit@glib.ai',
+    url='https://github.com/GLibAi/pydateparser',
     license='MIT',
 
     keywords=[
