@@ -2,11 +2,7 @@ group: travis_latest
 language: python
 cache: pip
 python:
-  #- 2.7
   - 3.7
-  #- nightly
-  #- pypy
-  #- pypy3
 matrix:
   allow_failures:
     - python: pypy
@@ -19,21 +15,11 @@ install:
   - pip3 install codecov
   - python setup.py install
 before_script:
-  - inv travis.make-sudouser
-  - inv travis.make-sshable
-  # stop the build if there are Python syntax errors or undefined
-  # names
   - flake8 --config=.flake8 .
-  #- black --check --verbose .
-  # exit-zero treats all errors as warnings.
-  # diverting from the standard 79 character line length in
-  # accordance with this:
-  # https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds
   - flake8 . --count --exit-zero --statistics --select=E,F,W,C90
 script:
   - coverage run -m pytest
   - coverage report --fail-under 95 -m
-  # ensuring coverage of tests stays at 100 until entire coverage can be 100
   - coverage report --fail-under 100 -m --include="test/*"
 after_sucess:
   - codecov
