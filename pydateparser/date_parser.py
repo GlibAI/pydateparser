@@ -14,11 +14,13 @@ class DateParser:
     """
     text = attr.ib(validator=attr.validators.instance_of(str))
     start_year = attr.ib(validator=attr.validators.instance_of(int))
-    end_year = attr.ib(validator=attr.validators.instance_of(int))
+    end_year = attr.ib(
+        validator=[attr.validators.instance_of(int), _end_year_validator])
     locale = attr.ib(default=None, validator=_date_format_type_validator)
 
     def __attrs_post_init__(self):
-        object.__setattr__(self, "locale", self._date_format_handler(self.locale))
+        object.__setattr__(
+            self, "locale", self._date_format_handler(self.locale))
 
     @staticmethod
     def _date_format_handler(locale):
@@ -31,7 +33,8 @@ class DateParser:
 
     @staticmethod
     def _format_date(date_object):
-        _date = namedtuple("DATE", ["date", "token_span", "token_index", "format"])
+        _date = namedtuple(
+            "DATE", ["date", "token_span", "token_index", "format"])
         return _date(date_object[0], (date_object[1], date_object[2]),
                      (date_object[4], date_object[5]), date_object[3])
 
