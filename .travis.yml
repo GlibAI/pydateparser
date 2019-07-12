@@ -38,6 +38,7 @@ script:
   #- coverage report --fail-under 100 -m --include="test/*"
   # - bash scripts/execute_notebooks.sh
   # - if grep -q "Traceback (most recent call last):" nb_to_md.txt; then false; else true; fi
+  pwd
   echo "success"
 #notifications:
   #on_success: change
