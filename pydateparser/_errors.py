@@ -1,0 +1,2 @@
+class DateParserException(Exception):
+    pass
