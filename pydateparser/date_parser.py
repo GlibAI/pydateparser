@@ -18,10 +18,10 @@ class DateParser:
     locale = attr.ib(default=None, validator=_date_format_type_validator)
 
     def __attrs_post_init__(self):
-        object.__setattr__(self, "locale", self.date_format_handler(self.locale))
+        object.__setattr__(self, "locale", self._date_format_handler(self.locale))
 
     @staticmethod
-    def date_format_handler(locale):
+    def _date_format_handler(locale):
         if locale == None:
             return DateFormats.locale.get('USA')
         elif locale != None and isinstance(locale, str) and locale in DateFormats.locale.keys():
