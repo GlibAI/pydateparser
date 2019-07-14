@@ -1,5 +1,6 @@
 """"
 Date Parser Adapter.
+
 """
 
 import attr
@@ -29,7 +30,7 @@ class DateParser:
     """
     CoreDateParser Adapter class.
 
-    Parameters: 
+    Parameters
     ----------
 
     text: str
@@ -45,9 +46,16 @@ class DateParser:
         define the type of dateformat(currently supports 'USA', 'EU'), default is None.
         or pass your own list of patterns.
 
-    Returns: 
+    Returns
     -------
+    list
         list of `DATE` objects.
+
+    Note
+    ----
+        DATE is a namedtuple, which gives out the actual extracted `date`, 
+        `token_span`, `token_index` and `format` (matched format) items.
+
     """
     @staticmethod
     def _format_date(date_object):
