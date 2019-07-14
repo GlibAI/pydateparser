@@ -21,6 +21,7 @@ script:
   - python -m unittest
   - cd tests
   - coverage run test_parser.py 
+  - coverage report -m
 after_sucess:
   - codecov
 #notifications:
