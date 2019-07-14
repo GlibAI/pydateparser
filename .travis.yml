@@ -18,6 +18,7 @@ before_script:
   - flake8 --config=.flake8 .
   - flake8 . --count --exit-zero --statistics --select=E,F,W,C90
 script:
+  - python -m unittest
   #- coverage run -m pytest
   #- coverage report --fail-under 95 -m
   #- coverage report --fail-under 100 -m --include="test/*"
