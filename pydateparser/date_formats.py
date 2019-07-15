@@ -3,7 +3,10 @@ Defines various supported locale/types.
 
 """
 
+from dataclasses import dataclass
 
+
+@dataclass(order=True, frozen=True)
 class DateFormats:
     '''
     standard dateformats, according to the various locales.
