@@ -9,7 +9,7 @@
 <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat">
 <img src="https://travis-ci.org/GlibAI/pydateparser.svg?branch=master">
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)
-
+[![Downloads](https://pepy.tech/badge/pydateparser)](https://pepy.tech/project/pydateparser)
 
 **Table of Contents**
 
