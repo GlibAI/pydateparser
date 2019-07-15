@@ -23,7 +23,9 @@ class DateFormats:
         '%m/%d/%Y',
         '%m/%-d/%Y',
         '%m/%d/%y',
-        '%m/%-d/%y'
+        '%m/%-d/%y',
+        '%o of %B, %Y',
+        '%B %o, %Y'
     ],
         'EU': [
         '%b %d %Y',
@@ -37,7 +39,9 @@ class DateFormats:
         '%d/%m/%Y',
         '%-d/%m/%Y',
         '%d/%m/%y',
-        '%-d/%m/%y'
+        '%-d/%m/%y',
+        '%o of %B, %Y',
+        '%B %o, %Y'
     ]}
 
     '''
@@ -53,7 +57,10 @@ class DateFormats:
         '%m/%d/%Y',
         '%m/%-d/%Y',
         '%m/%d/%y',
-        '%m/%-d/%y'
+        '%m/%-d/%y',
+        '%o of %B, %Y',
+        '%B %o, %Y',
+        '%b %o, %Y'
     ],
         'EU': [
         '%b %d %Y',
@@ -67,5 +74,8 @@ class DateFormats:
         '%d/%m/%Y',
         '%-d/%m/%Y',
         '%d/%m/%y',
-        '%-d/%m/%y'
+        '%-d/%m/%y',
+        '%o of %B, %Y',
+        '%B %o, %Y',
+        '%b %o, %Y'
     ]}
