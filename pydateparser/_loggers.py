@@ -1,4 +1,6 @@
-"""Singleton logger for all modules to use."""
+"""
+Singleton logger for all modules to use.
+"""
 import logging
 
 formatter = logging.Formatter(
