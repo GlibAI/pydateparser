@@ -38,7 +38,7 @@ dp = parser(text, start_year=2000, end_year=2020, locale=None)
 ```
 sample output: 
 ```python
-dp.datetime
+dp.date
 
 #output
 [datetime(date='january 01 2019', token_span=(34, 49), token_index=(6, 8), locale='%B %d %Y'),
