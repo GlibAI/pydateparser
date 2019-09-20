@@ -65,10 +65,11 @@ class DateParser:
                      (date_object[4], date_object[5]), date_object[3])
 
     @staticmethod
-    def _parser(text, start_year, end_year, locale, formatter):
+    def _parser(text, start_year, end_year, locale, formatter, log=False):
         DP = CoreDateParser(locale, start_year=start_year, end_year=end_year)
         try:
-            logger.info('Extracting dates from the text.')
+            if log:
+                logger.info('Extracting dates from the text.')
             dt = DP.parse_string(text)
             _dt = [formatter(i) for i in dt]
             return _dt
