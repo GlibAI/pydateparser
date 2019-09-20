@@ -1,4 +1,4 @@
-__version__ = '0.2.4'
+__version__ = '0.2.5'
 
 from .date_parser import DateParser
 from .date_formats import DateFormats
