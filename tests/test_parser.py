@@ -16,7 +16,7 @@ class TestDateParserInputs(unittest.TestCase):
         d1 = DateParser(text=texts.get(
             'S1'), start_year=2019, end_year=2019)
         o1 = [_date(date='january 01 2019', token_span=(
-            12, 27), token_index=(4, 4), format='%B %d %Y')]
+            12, 27), token_index=(2, 4), format='%B %d %Y')]
         self.assertEqual(d1.date, o1, 'should be equal.')
 
         d2 = DateParser(text=texts.get(
