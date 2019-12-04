@@ -114,7 +114,7 @@ class CoreDateParser:
                 start_token = 1000
                 end_token = -1
                 for idx in token_spans:
-                    if (char_start > token_spans[idx][1] and char_start < token_spans[idx][2]) or (char_end > token_spans[idx][1] and char_end < token_spans[idx][2]):
+                    if (char_start >= token_spans[idx][1] and char_start <= token_spans[idx][2]) or (char_end >= token_spans[idx][1] and char_end <= token_spans[idx][2]):
                         start_token = min(start_token, token_spans[idx][3])
                         end_token = max(end_token, token_spans[idx][3])
                 ret_list.append(list(pm) + [start_token, end_token])
