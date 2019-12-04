@@ -27,7 +27,7 @@ class TestDateParserInputs(unittest.TestCase):
         d3 = DateParser(text=texts.get(
             'S2'), start_year=2016, end_year=2019)
         o3 = [_date(date='january 04, 2017', token_span=(
-            19, 35), token_index=(1000, -1), format='%B %d, %Y')]
+            19, 35), token_index=(4, 6), format='%B %d, %Y')]
         self.assertEqual(d3.date, o3, 'should be equal.')
 
         d4 = DateParser(text=texts.get('S1'), start_year=2019, end_year=2019)
@@ -35,7 +35,7 @@ class TestDateParserInputs(unittest.TestCase):
         self.assertEqual(d4, d5, 'should be equal.')
 
         d6 = DateParser(text=texts.get('S4'), start_year=2015, end_year=2019)
-        o4 = [_date(date='december 12th, 2015', token_span=(56, 75), token_index=(1000, -1), format='%B %o, %Y'), 
+        o4 = [_date(date='december 12th, 2015', token_span=(56, 75), token_index=(10, 12), format='%B %o, %Y'), 
             _date(date='dec 31 2015', token_span=(14, 25), token_index=(1000, -1), format='%b %-d %Y'), 
             _date(date='dec 31 2015', token_span=(14, 25), token_index=(1000, -1), format='%b %d %Y')]
         self.assertEqual(d6.date, o4, 'should be equal.')
